@@ -8,17 +8,17 @@ def train():
     base_name = "test_labels_base_dir_feature"
     now_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     task_name = f"{base_name}_{now_time}"
-    project_name = "YOLOv8"
+    project_name = "yolo_pose"
     if project_name:
         Task.init(
-            project_name='YOLOv8',
+            project_name=project_name,
             task_name=task_name,
             task_type=Task.TaskTypes.training,
         )
     # Load a model
     # model = YOLO("yolov8m-pose.yaml")   # build a new model from YAML, not pretrained
     model = YOLO("yolov8m-pose.pt")  # load a pretrained model 
-    dataset_path = "/thor/yolo_datasets/test_not_tiny1/dataset.yaml"
+    dataset_path = "/thor/yolo_datasets/test_not_tiny6/dataset.yaml"
     batch_size_per_gpu = 16
     num_workers = 8
 
